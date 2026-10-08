@@ -7,7 +7,7 @@
 - **Most important files**: `app.js` (fetches JSON and renders product cards) and `index.html` (page structure).
 - **Priority/complexity**: Medium priority, Simple complexity.
 
-## Problem Statement
+### 2. Problem Statement
 
 The repository `thabunghula-oss/testRepo2` currently contains no application code. An ecommerce landing page is needed as a starting point. It must be as simple as possible and read its product data from a JSON file for now (no backend, no database, no API).
 
@@ -337,6 +337,10 @@ html { scroll-behavior: smooth; }
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Required: author rules like `.product-grid { display: grid }` otherwise override
+   the `hidden` attribute, so showStatus() could not hide the grid. */
+[hidden] { display: none !important; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -362,7 +366,7 @@ body {
 }
 ```
 
-Also style: `.site-header` (flex row, logo left, nav right, bottom border), `.hero` (surface background, generous vertical padding ~64px, centered text), `.button` (accent background, white text, padding, rounded corners, no underline), `.product-card` (border, rounded corners, padding, `overflow: hidden`), `.product-price` (bold), `.product-description` and `.status` (muted color), `.site-footer` (top border, muted small text, vertical padding).
+Also style: `.site-header` (flex row, logo left, nav right, bottom border), `.hero` (surface background, vertical padding 64px, centered text), `.button` (accent background, white text, padding, rounded corners, no underline), `.product-card` (border, rounded corners, padding, `overflow: hidden`), `.product-price` (bold), `.product-description` and `.status` (muted color), `.site-footer` (top border, muted small text, vertical padding).
 
 **`README.md`** content (minimum):
 
@@ -416,7 +420,7 @@ Edit `data/products.json`. Each product needs `id`, `name`, `price` (number, USD
 #### Phase 4: Documentation and verification
 
 - [ ] Create `README.md` with run and editing instructions.
-- [ ] Run through the Manual Testing Checklist (section 8) with `npx serve .` or `python3 -m http.server 8000`.
+- [ ] Run through the Manual Testing Checklist (section 8) with `npx serve .` or `python3 -m http.server 8000`. If no browser is available in the implementation environment, at minimum: start the server, confirm `curl -s http://localhost:8000/data/products.json` returns the JSON and `curl -s http://localhost:8000/` returns `index.html`, validate the JSON with `python3 -m json.tool data/products.json`, run `node --check app.js`, and confirm by reading the code that `app.js` contains no `innerHTML`.
 
 Phases 1–3 can be done in any order; Phase 4 comes last.
 
