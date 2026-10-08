@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Classic T-Shirt",
+    "price": 19.99,
+    "image": "https://placehold.co/400x400?text=T-Shirt",
+    "description": "Soft cotton tee for everyday wear."
+  },
+  {
+    "id": 2,
+    "name": "Canvas Tote Bag",
+    "price": 24,
+    "image": "https://placehold.co/400x400?text=Tote+Bag",
+    "description": "Sturdy tote with plenty of room for the essentials."
+  },
+  {
+    "id": 3,
+    "name": "Ceramic Mug",
+    "price": 12.5,
+    "image": "https://placehold.co/400x400?text=Mug",
+    "description": "12 oz mug, dishwasher and microwave safe."
+  },
+  {
+    "id": 4,
+    "name": "Wireless Earbuds",
+    "price": 49.99,
+    "image": "https://placehold.co/400x400?text=Earbuds",
+    "description": "Compact earbuds with a 20-hour battery case."
+  }
+]
