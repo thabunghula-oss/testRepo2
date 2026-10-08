@@ -27,12 +27,19 @@ function createProductCard(product) {
   const card = document.createElement('article');
   card.className = 'product-card';
 
+  const media = document.createElement('div');
+  media.className = 'product-media';
+
   const img = document.createElement('img');
   img.src = product.image;
   img.alt = product.name;
-  img.width = 400;
-  img.height = 400;
+  img.width = 600;
+  img.height = 750;
   img.loading = 'lazy';
+  media.append(img);
+
+  const info = document.createElement('div');
+  info.className = 'product-info';
 
   const name = document.createElement('h3');
   name.textContent = product.name;
@@ -45,7 +52,8 @@ function createProductCard(product) {
   description.className = 'product-description';
   description.textContent = product.description;
 
-  card.append(img, name, price, description);
+  info.append(name, price, description);
+  card.append(media, info);
   return card;
 }
 
