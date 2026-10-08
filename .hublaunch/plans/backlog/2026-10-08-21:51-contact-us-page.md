@@ -304,6 +304,7 @@ body {
 
 - Don't build a custom modal (div overlay, manual focus trap, manual `Esc` handling). Use `<dialog>` + `showModal()`.
 - Don't use `dialog.show()`. It opens a non-modal dialog with no backdrop and no `Esc` handling. Use `showModal()`.
+- Don't place the `<dialog>` inside `#contact-form`. It contains its own `<form method="dialog">`, and nested forms are invalid HTML (the Close button would submit `#contact-form` instead of closing the dialog). Keep the `<dialog>` as a sibling of `<main>`, as shown.
 - Don't add `novalidate` to the form or write JS validation. The `required` attribute is the whole validation.
 - Don't send, log, or store the submitted values (no `fetch`, `console.log(formData)`, `localStorage`).
 - Don't use `innerHTML`. The modal text is static in the HTML.
@@ -327,7 +328,7 @@ body {
 #### Phase 4: Verification
 
 - [ ] Run `node --check contact.js` and confirm it exits with no error.
-- [ ] Confirm `contact.js` contains no `innerHTML`, `fetch`, `localStorage`, or `console.log` (e.g. `grep -nE 'innerHTML|fetch|localStorage|console\.log' contact.js` prints nothing).
+- [ ] Confirm `contact.js` contains no `innerHTML`, `fetch`, `XMLHttpRequest`, `localStorage`, or `console.log` (e.g. `grep -nE 'innerHTML|fetch|XMLHttpRequest|localStorage|console\.log' contact.js` prints nothing).
 - [ ] Confirm `git status` shows only the three new files `contact.html`, `contact.css`, `contact.js` (plus any HubLaunch-generated tracking files) and no modified files.
 - [ ] If a browser is available, run through the Manual Testing Checklist (section 8).
 
